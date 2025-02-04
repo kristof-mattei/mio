@@ -28,7 +28,7 @@ macro_rules! t {
 }
 
 fn server() -> (NamedPipe, String) {
-    let num: u64 = rand::thread_rng().gen();
+    let num: u64 = rand::rng().random();
     let name = format!(r"\\.\pipe\my-pipe-{}", num);
     let pipe = t!(NamedPipe::new(&name));
     (pipe, name)
